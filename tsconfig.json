@@ -17,6 +17,6 @@
       "`GOD/*`": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "Components/video/index.jsx"],
   "exclude": ["node_modules"]
 }
