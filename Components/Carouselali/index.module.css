@@ -117,7 +117,7 @@
 }
 
 .directionsIcon {
-	position: absolute;
+	/* position: absolute; */
 	background-color: rgba(63, 65, 3, 0.703);
 	border-radius: 1vh;
 	color: #fffce2;
@@ -136,24 +136,26 @@
 .circaliBox {
 	width: fit-content;
 	padding: 0.1vh 1vh;
-	height: 2vw;
+	height: 3vh;
 	border-radius: 4vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	background: radial-gradient(
+	top: 50%;
+  	background: radial-gradient(
 		rgba(0, 255, 174, 0.119),
 		rgba(244, 255, 254, 0.132)
 	);
+	background-color: red;
 	border: 0.3vh dashed rgba(0, 1, 33, 0.367);
 }
 
 .circali {
 	border-radius: 100vh;
-	width: 2vw;
+	width: 3vh;
+	height: 3vh;
 	margin: 0.1vh 1vh;
-	height: 2vw;
 	background-color: rgb(255, 221, 0);
 	border: double 0.4vh rgba(245, 119, 9, 0.9);
 }

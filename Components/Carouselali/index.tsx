@@ -13,8 +13,18 @@ const Carouselali = () => {
 	const [currentIndex, setCurrentIndex] = useState<number>(0)
 	const [contoraliX, setContoraliX] = useState<number>()
 	const [images, setImages] = useState<ImageStructure[]>([
-		{ src: '/alireza.jpg' },
-		{ src: '/feshki.webp' },
+		{ src: '/images/Gerdachala.webp' },
+		{ src: '/images/jaraghalesquer.jpg' },
+		{ src: '/images/Akbar.jpg' },
+		{ src: '/images/Gerdachala.webp' },
+		{ src: '/images/jaraghalesquer.jpg' },
+		{ src: '/images/Akbar.jpg' },
+		{ src: '/images/Gerdachala.webp' },
+		{ src: '/images/jaraghalesquer.jpg' },
+		{ src: '/images/Akbar.jpg' },
+		{ src: '/images/Gerdachala.webp' },
+		{ src: '/images/jaraghalesquer.jpg' },
+		{ src: '/images/Akbar.jpg' },
 	])
 
 	useEffect(() => {
@@ -73,13 +83,6 @@ const Carouselali = () => {
 
 				<div className={styles.carouselaliContainer}>
 					<div className={styles.carouselali}>
-						<Image
-							className={`${styles.image} ${styles.imageTransition}`}
-							src={`${images[currentIndex].src}`}
-							width={4444}
-							height={4444}
-							alt={'carousell'}
-						/>
 						<div className={styles.circaliBox}>
 							{images.map((image, index) => (
 								<span
@@ -90,6 +93,13 @@ const Carouselali = () => {
 									key={index}></span>
 							))}
 						</div>
+						<Image
+							className={`${styles.image} ${styles.imageTransition}`}
+							src={`${images[currentIndex].src}`}
+							width={4444}
+							height={4444}
+							alt={'carousell'}
+						/>
 						<div
 							className={styles.containerali}
 							onClick={(e) => containeralick(e)}>
