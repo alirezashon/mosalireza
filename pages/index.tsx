@@ -13,9 +13,7 @@ const RootPage = () => {
 			<Carouselali />
 			<Hexadragong/>
 			<Video />
-			<Video />
-			<Video />
-			<Video />
+			 
 		</>
 	)
 }
