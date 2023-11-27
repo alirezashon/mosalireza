@@ -59,7 +59,11 @@
       checkMapsAvailability();
     }, []);
 
-    return <div className="map"></div>;
+    return (<>
+            <div className="map"></div>
+      <p>testalise</p>
+    </>
+      )
   };
 
   export default Map;
