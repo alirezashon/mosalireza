@@ -1,6 +1,7 @@
 /** @format */
 import { PiHandHeartThin } from 'react-icons/pi'
-import { AiFillCloseCircle, AiOutlineShoppingCart } from 'react-icons/ai'
+import { FaHeartbeat } from 'react-icons/fa'
+import { AiFillCloseCircle } from 'react-icons/ai'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from './index.module.css'
@@ -22,7 +23,7 @@ interface Props {
 const StoryComponent: React.FC = () => {
 	const data = [
 		{
-			_id:'2277137',
+			_id: '2277137',
 			title: 'EBiramoza',
 			src: '/alireza.jpg',
 			price: 7777777,
@@ -40,6 +41,7 @@ const StoryComponent: React.FC = () => {
 			seen: false,
 		})) || []
 	)
+	const [like, setLike] = useState<number[]>([])
 	const router = useRouter()
 	useEffect(() => {
 		const storyHistory: string[] = JSON.parse(
@@ -120,7 +122,7 @@ const StoryComponent: React.FC = () => {
 			{showStoryBox && (
 				<div className={styles.openStoryContainer}>
 					<div className={styles.openStoryInnerSide}>
-						{stories.map((story) => (
+						{stories.map((story, index) => (
 							<div className={styles.openStoryBox}>
 								<div className={styles.openStoryHeader}>
 									<AiFillCloseCircle
@@ -130,11 +132,20 @@ const StoryComponent: React.FC = () => {
 										size={'5vh'}
 									/>
 									<h3 className={styles.title}>{story.title}</h3>
-									<AiOutlineShoppingCart
+									<FaHeartbeat
+										onClick={() => {
+											setLike((prev) => {
+												if (prev.includes(index)) {
+													return prev.filter((item) => item !== index)
+												} else {
+													return [...prev, index]
+												}
+											})
+										}}
 										className={styles.basketBall}
-										color={'white'}
+										color={like.includes(index) ? 'red' : 'white'}
 										size={'5vh'}
- 									/>
+									/>
 								</div>
 								<div className={styles.openStory}>
 									<Image

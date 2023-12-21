@@ -13,15 +13,17 @@
 }
 .controller {
 	width: 100%;
-	position: absolute;
-  	border-bottom: 12vh ridge #77fff1;
+	position: fixed;
+	border-bottom: 12vh ridge #77fff1;
 	border-radius: 0vh 0vh 40% 40%;
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
-	background-color: rgb(251, 55, 55);
-}
+	background-color: rgb(251, 176, 55);
+	z-index: 1;
+ }
 .controllerIconBox {
+	z-index: 5;
 	width: fit-content;
 	padding: 0.4vh;
 	border-radius: 22vh;
@@ -32,8 +34,7 @@
 	color: white;
 	background-color: #ef7c00;
 	align-self: center;
-	position: absolute;
-	z-index: 2;
+	position: fixed;
 }
 .scrollingDiv {
 	direction: rtl;
@@ -196,14 +197,14 @@
 	width: 100%;
 	height: 100%;
 	opacity: 0.33;
-		border-radius: 5vh 0vh;
-		transform: rotateX(54deg);
-		transform-origin: 10% 10% 118%;
-		border: transparent 9px #a5df08;
-		border-bottom-color: #baeb09;
-		border-right-color: #baeb09;
-		box-shadow: 1px 1px 7px 1px #510101;	
-		z-index: 3;
- 	border-radius: 2vh;
+	border-radius: 5vh 0vh;
+	transform: rotateX(54deg);
+	transform-origin: 10% 10% 118%;
+	border: transparent 9px #a5df08;
+	border-bottom-color: #baeb09;
+	border-right-color: #baeb09;
+	box-shadow: 1px 1px 7px 1px #510101;
+	z-index: 3;
+	border-radius: 2vh;
 	border: 1vh rgb(155, 238, 234) ridge;
 }

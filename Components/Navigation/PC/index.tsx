@@ -12,7 +12,7 @@ interface MenuItem {
 }
 
 const Menu = () => {
-	const [showOptions, setShowOptions] = useState<boolean>(true)
+	const [visible, setVisible] = useState<boolean>(true)
 	const [selectedItem, setSelectedItem] = useState<number | null>(null)
 	const [isSubOptionOpen, setIsSubOptionOpen] = useState<{
 		[key: number]: boolean
@@ -58,29 +58,36 @@ const Menu = () => {
 	useEffect(() => {
 		const handleScroll = () => {
 			const currentScrollPos = window.scrollY
-			currentScrollPos < 799 ? setShowOptions(true) : setShowOptions(false)
+			currentScrollPos < 799 ? setVisible(true) : setVisible(false)
 		}
-
 		window.addEventListener('scroll', handleScroll)
 
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
+
+ 
+
 
 	return (
 		<>
 			<div className={styles.controllerBox}>
 				<div
 					draggable={true}
-					className={styles.controller}
+					className={`${styles.controller}  ${
+						visible ? styles.show : styles.hide
+					}`}
 					onMouseOver={() =>
 						navHeight === 90 ? setNavHeight(13) : setNavHeight(90)
 					}
-					style={{ height: `${navHeight}vh`, top: `${navHeight -80}vh` }}></div>
+					style={{
+						height: `${navHeight}vh`,
+						top: `${navHeight > 55 ? navHeight - 90 : navHeight - 13}vh`,
+					}}></div>
 				<div
 					className={styles.controllerIconBox}
-					style={{ top: `${navHeight - 7}vh ` }}
+					style={{ top: `${navHeight - 7}vh `, opacity:`${visible ? 1 : 0}` }}
 					onClick={() =>
-						navHeight === 67 ? setNavHeight(13) : setNavHeight(67)
+						navHeight === 90 ? setNavHeight(13) : setNavHeight(90)
 					}>
 					{navHeight < 22 ? (
 						<PiArrowFatLinesDownThin />
@@ -97,7 +104,7 @@ const Menu = () => {
 					height: `${navHeight > 55 ? navHeight - 7 : navHeight - 2}vh`,
 				}}
 				className={`${styles.scrollingDiv} ${
-					showOptions ? styles.show : styles.hide
+					visible ? styles.show : styles.hide
 				}`}>
 				<div
 					className={`${styles.itemsBox} ${
