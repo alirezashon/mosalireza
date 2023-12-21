@@ -75,7 +75,7 @@ const Menu = () => {
 					onMouseOver={() =>
 						navHeight === 90 ? setNavHeight(13) : setNavHeight(90)
 					}
-					style={{ height: `${navHeight}vh`, top: `${navHeight -60}vh` }}></div>
+					style={{ height: `${navHeight}vh`, top: `${navHeight -80}vh` }}></div>
 				<div
 					className={styles.controllerIconBox}
 					style={{ top: `${navHeight - 7}vh ` }}

@@ -33,7 +33,8 @@
 	background-color: #ef7c00;
 	align-self: center;
 	position: absolute;
- }
+	z-index: 2;
+}
 .scrollingDiv {
 	direction: rtl;
 	width: 100%;

@@ -5,6 +5,7 @@ import Carouselali from '../Components/Carouselali'
 import Story from '../Components/Story'
 import Video from '../Components/video'
 import Hexadragong from '../Components/Hexadragong'
+import Navigation from '../Components/Navigation'
 const RootPage = () => {
 	return (
 		<>
