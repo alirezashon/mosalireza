@@ -9,13 +9,14 @@ import Navigation from '../Components/Navigation'
 const RootPage = () => {
 	return (
 		<>
-			<Navigation/>
+			<div style={{ marginBottom: '13vh' }}>
+				<Navigation />
+			</div>
 			<Personalinfo />
 			<Story />
 			<Carouselali />
-			<Hexadragong/>
+			<Hexadragong />
 			<Video />
-			 
 		</>
 	)
 }
