@@ -1,0 +1,210 @@
+/** @format */
+
+.show {
+	transform: translateX(0%);
+}
+
+.hide {
+	transform: translateX(-100%);
+}
+.controllerBox {
+	display: flex;
+	flex-direction: column;
+}
+.controller {
+	width: 100%;
+	position: fixed;
+	border-bottom: 12vh ridge #77fff1;
+	border-radius: 0vh 0vh 40% 40%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	background-color: rgb(251, 176, 55);
+	z-index: 1;
+ }
+.controllerIconBox {
+	z-index: 5;
+	width: fit-content;
+	padding: 0.4vh;
+	border-radius: 22vh;
+	border: dashed 0.4vh rgb(233, 252, 254);
+	font-size: 4vh;
+	display: flex;
+	align-items: center;
+	color: white;
+	background-color: #ef7c00;
+	align-self: center;
+	position: fixed;
+}
+.scrollingDiv {
+	direction: rtl;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	background: linear-gradient(
+		7deg,
+		rgb(202, 243, 255),
+		rgb(234, 250, 255),
+		rgb(110, 199, 225)
+	);
+	padding: 2vh 1vh 1vh 1vh;
+	transition: all 0.5s ease-in-out;
+	box-shadow: 1px 1px 2vh 1px #a7e9db inset, 1px 1px 6px 1px #fbfbf9;
+	border-bottom: 2vh double rgb(241, 255, 254);
+	border-radius: 0vh 0vh 40% 40%;
+	position: fixed;
+	z-index: 4;
+	top: 0;
+	font-size: 2vh;
+}
+.itemsBox {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background: linear-gradient(
+		4deg,
+		rgba(163, 248, 237, 0.9),
+		rgba(208, 236, 241, 0.9),
+		rgba(202, 254, 248, 0.8)
+	);
+}
+.items {
+	display: flex;
+	justify-content: space-around;
+}
+.openItemsBox {
+	height: 85%;
+	border-radius: 0 0 22vh 22vh;
+	top: 0;
+	position: absolute;
+}
+
+.closeItemsBox {
+	background: linear-gradient(
+		95deg,
+		rgba(137, 201, 198, 0.564),
+		rgba(19, 89, 85, 0.564),
+		rgba(183, 231, 228, 0.598)
+	);
+	top: 0;
+	position: fixed;
+	border-radius: 0 0 77% 77%;
+	border-bottom: double 0.5vh rgb(248, 253, 255);
+	padding: 2vh 0;
+}
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.menuItem {
+	padding: 0.4vh 3vh;
+	color: #fffffd;
+	background: repeating-linear-gradient(
+		22deg,
+		rgba(183, 218, 226, 0.9),
+		rgba(17, 95, 112, 0.9),
+		rgba(33, 124, 144, 0.9),
+		rgba(183, 218, 226, 0.9)
+	);
+	text-shadow: 1px 1px 4px #050502;
+	text-align: center;
+	border-radius: 1vh 0 3vh;
+	border-bottom: double 0.5vh rgb(233, 252, 254);
+	border-left: dashed 0.1vh rgba(243, 255, 253, 0.9);
+}
+.subOptionBox {
+	margin: 5vh 0.2vh;
+	padding: 2vh;
+	border-right: 1vh double rgba(50, 90, 88, 0.564);
+	border-radius: 2vh;
+	background: linear-gradient(
+		313deg,
+		rgba(138, 202, 241, 0.5) 10%,
+		rgba(237, 250, 255, 0.9),
+		rgba(31, 209, 222, 0.7)
+	);
+}
+.subOption {
+	margin: 2vh;
+	padding: 0 2vh;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-bottom: 0.5vh double rgb(193, 197, 201);
+	border-radius: 0 0 1vh 1vh;
+}
+
+.container {
+	position: relative;
+}
+
+.dropdown {
+	position: absolute;
+	width: 50vw;
+	left: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.dropdownItem {
+	color: #ffe5e5;
+	border-top: ridge 4px #34b5bc;
+	background: radial-gradient(rgb(102, 190, 185), rgb(18, 137, 170));
+	text-align: center;
+}
+
+.dropdownItem::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #2d2a42;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.dropdownItem:hover::after {
+	transform: scaleX(1);
+}
+
+.componentBox {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	align-self: center;
+	width: 20%;
+}
+.search {
+	width: 80vh;
+}
+.imageBox {
+	width: 33%;
+	height: 99%;
+	perspective: 99vh;
+	position: absolute;
+	top: 44%;
+	left: 50%;
+	transform: translate(-50%, -45%);
+	margin: 0 auto;
+}
+.image {
+	width: 100%;
+	height: 100%;
+	opacity: 0.33;
+	border-radius: 5vh 0vh;
+	transform: rotateX(54deg);
+	transform-origin: 10% 10% 118%;
+	border: transparent 9px #a5df08;
+	border-bottom-color: #baeb09;
+	border-right-color: #baeb09;
+	box-shadow: 1px 1px 7px 1px #510101;
+	z-index: 3;
+	border-radius: 2vh;
+	border: 1vh rgb(155, 238, 234) ridge;
+}
