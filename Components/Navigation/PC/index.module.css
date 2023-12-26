@@ -8,6 +8,7 @@
 	transform: translateX(-100%);
 }
 .controllerBox {
+	margin-bottom: 15vh;
 	display: flex;
 	flex-direction: column;
 }
