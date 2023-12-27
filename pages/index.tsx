@@ -1,22 +1,26 @@
 /** @format */
 
-import Personalinfo from '../Components/Personalinfo'
-import Carouselali from '../Components/Carouselali'
-import Story from '../Components/Story'
-import Video from '../Components/video'
-import Hexadragong from '../Components/Hexadragong'
-import Navigation from '../Components/Navigation'
-const RootPage = () => {
+import Handler from '../Handler'
+
+const RootPage: React.FC = () => {
+	
 	return (
 		<>
-			<div style={{ marginBottom: '13vh' }}>
-				<Navigation />
-			</div>
-			<Personalinfo />
-			<Story />
-			<Carouselali />
-			<Hexadragong />
-			<Video />
+			{/* <script type="application/ld+json">
+  {
+   { "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Article Title",
+    "datePublished": "2023-01-01",
+    "author": {
+      "@type": "Person",
+      "name": "Author Name"
+    },
+    "description": "Brief summary of the article content."
+}  }
+</script> */}
+
+			<Handler />
 		</>
 	)
 }

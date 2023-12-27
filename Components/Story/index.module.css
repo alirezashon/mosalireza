@@ -15,7 +15,7 @@
 .storyBox {
 	overflow-x: auto;
 	width: 100%;
-	margin: .3vh 0;
+	margin: 0.3vh 0;
 	background-color: #ffffff;
 	border: #34bc9a 0.5vh dashed;
 	box-shadow: 1px 1px 7px 1px #e0f5ff, 1px 1px 11vh 1vh #8bddcd inset;
@@ -49,15 +49,19 @@
 .openStoryContainer {
 	height: 70%;
 	width: 100%;
-	position: absolute;
-	top: 0;
+	position: fixed;
+	padding: 1vh;
+	top: 13vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	z-index: 3;
-	background-color: rgba(0, 4, 11, 0.7);
-	border: ridge 2vh rgb(0, 255, 208);
+	box-shadow: 1px 1px 2vh .7vh rgba(0, 4, 11, 0.9) inset;
+	background-color: rgba(233, 241, 255, 0.7);
+	border: ridge 1vh;
+	border-image: linear-gradient(to bottom, #a3e7f3, #ff6608, #95deed);
+	border-image-slice: 22;
 }
 .closeStoryContainer {
 	position: absolute;
@@ -86,11 +90,14 @@
 	align-items: center;
 	background: linear-gradient(
 		4deg,
-		rgba(18, 225, 244, 0.7),
+		rgba(141, 224, 232, 0.7),
 		rgba(211, 248, 252, 0.7),
-		rgba(175, 139, 232, 0.9)
+		rgba(202, 228, 245, 0.9)
 	);
-	border: double 2vh rgb(245, 255, 253);
+	border: 1vh ridge;
+ 	border-image: linear-gradient(to right, #cbeff6, #ff6608, #e0faff);
+	border-image-slice: 2;
+	border-radius: 7vh;
 }
 .openStoryBox {
 	border: double 1vh rgba(255, 255, 255, 0.7);

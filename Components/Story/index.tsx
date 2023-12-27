@@ -30,7 +30,7 @@ const StoryComponent: React.FC = () => {
 			category: 'P&O*S^T$I%T#E^M$',
 			quantity: 22,
 			description:
-				'this post just created for happy freedome to al.akbarporJojegan',
+				'Web Developer',
 		},
 	]
 	const [openStory, setOpenStory] = useState<string>()
@@ -85,7 +85,7 @@ const StoryComponent: React.FC = () => {
 		setTimeout(() => {
 			setShowStoryBox(false)
 			setOpenStory((prevIndex) => prevIndex && prevIndex + 1)
-		}, 70000)
+		}, 7000000)
 	}
 	const closeStory = () => {
 		setShowStoryBox(false)
