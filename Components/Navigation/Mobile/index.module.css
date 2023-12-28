@@ -22,12 +22,12 @@
 	);
 	font-size: 2vh;
 	cursor: pointer;
-}
-.profile{
+ }
+.profile {
 	display: flex;
 	justify-content: center;
 	align-self: center;
-	background: radial-gradient(rgba(99,211,192,.9),rgba(96, 118, 154, 0.9));
+	background: radial-gradient(rgba(99, 211, 192, 0.9), rgba(96, 118, 154, 0.9));
 	border-radius: 22vh;
 	color: white;
 }
@@ -78,7 +78,7 @@
 	transition: transform 0.3s ease-in-out;
 	overflow-y: auto;
 }
- 
+
 .header {
 	background: linear-gradient(
 		100deg,
@@ -89,7 +89,6 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	
 }
 .searchBox {
 	width: 60%;
@@ -101,29 +100,31 @@
 	padding: 0.7vh;
 	opacity: 0.8;
 	background: radial-gradient(rgba(232, 247, 255, 0.14), rgb(255, 236, 197.1));
- 	align-self: center;
+	align-self: center;
 	text-align: center;
 	color: rgb(188, 0, 0);
 	border-radius: 4vh;
 
-font-size: 4vh;}
+	font-size: 4vh;
+}
 .cross:hover {
 	opacity: 1;
 	transform: scale(1.1) rotate(360deg);
 	background-color: rgba(240, 248, 255, 0.6);
 }
 .dropdown {
+	text-align: center;
+	justify-content: space-around;
 	color: rgba(1, 30, 44, 0.934);
 	width: 100%;
-	background-color: yellow;
-	direction: rtl;
 	border-bottom: 0.5vh ridge rgb(68, 187, 208);
 }
 .name {
 	background: linear-gradient(
-		4deg,
-		rgba(140, 203, 236, 0.934),
-		rgb(255, 236, 197)
+		90deg,
+		rgba(254, 255, 232, 0.934),
+		rgba(158, 215, 239, 0.929),
+		rgb(255, 254, 239)
 	);
 	border-top: 0.5vh ridge rgb(251, 239, 239);
 }
@@ -131,8 +132,24 @@ font-size: 4vh;}
 	border-bottom: ridge 0.4vh rgb(0, 158, 210);
 	background: linear-gradient(
 		100deg,
-		rgba(173, 209, 220, 0.9),
+		rgba(143, 180, 191, 0.9),
 		rgba(247, 247, 247, 0.9),
 		rgba(164, 234, 248, 0.9)
 	);
+}
+.name:hover,
+.option:hover,
+.subOption:hover {
+	transform: translateY(-0.7vh);
+	border-color: white;
+}
+.subOption {
+	background: repeating-linear-gradient(
+		45deg,
+		rgba(215, 248, 251, 0.9),
+		rgba(30, 37, 133, 0.9),
+		rgba(196, 246, 244, 0.9)
+	);
+	border-top: 0.5vh ridge rgba(180, 219, 251, 0.958);
+	color: white;
 }

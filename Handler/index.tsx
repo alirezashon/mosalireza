@@ -16,7 +16,7 @@ const Handler: React.FC = () => {
 	const refs: Refs = {
 		carousel: useRef<HTMLDivElement>(null),
 		hexagon: useRef<HTMLDivElement>(null),
-		nav: useRef<HTMLDivElement>(null),
+		video: useRef<HTMLDivElement>(null),
 	}
 
 	const [isScrolled, setIsScrolled] = useState<Record<string, boolean>>(
@@ -26,21 +26,16 @@ const Handler: React.FC = () => {
 	useEffect(() => {
 		const handleScroll = () => {
 			const yOffset = window.scrollY
-
 			Object.keys(refs).forEach((key) => {
 				const refElement = refs[key].current
 				if (refElement) {
 					const offsetTop = refElement.offsetTop
-
 					const shouldScroll = yOffset > offsetTop / 2
-
 					setIsScrolled((prev) => ({ ...prev, [key]: shouldScroll }))
 				}
 			})
 		}
-
 		window.addEventListener('scroll', handleScroll)
-
 		return () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
@@ -69,7 +64,15 @@ const Handler: React.FC = () => {
 				}}>
 				<Hexadragong />
 			</div>
-			<Video />
+			<div
+				ref={refs.video}
+				style={{
+					transform: `${
+						isScrolled.video ? 'translateX(0vh)' : 'translateY(100vw)'
+					}`,
+				}}>
+				<Video />
+			</div>
 		</>
 	)
 }

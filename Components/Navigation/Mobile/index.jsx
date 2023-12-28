@@ -97,7 +97,10 @@ const Mobile = () => {
 								className={styles.name}
 								onClick={() => toggleOption(index)}>
 								{menuItem.name}
-								<span className={styles.icon}>▼</span>
+								{menuItem.option &&
+								<span className={styles.icon}>
+									{isOptionOpen[index] ? '▲' : '▼'}{' '}
+								</span>}
 							</div>
 							{menuItem.option &&
 								menuItem.option.length > 0 &&
@@ -113,7 +116,9 @@ const Mobile = () => {
 												) : (
 													<>
 														{option.name}
-														<span className={styles.icon}>▼</span>
+														<span className={styles.icon}>
+															{isSubOptionOpen[optionIndex] ? '▲' : '▼'}
+														</span>
 														{option.option &&
 															option.option.length > 0 &&
 															isSubOptionOpen[optionIndex] && (

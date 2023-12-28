@@ -19,8 +19,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav>
-      {isMobile ? <MobileNav /> : <DesktopNav />}
+    <nav style={{ marginBottom: `${isMobile && '9vh' }`}}>
+      {isMobile ? <MobileNav  /> : <DesktopNav />}
     </nav>
   );
 };
