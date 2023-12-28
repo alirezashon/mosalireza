@@ -1,11 +1,12 @@
 /** @format */
-import { PiHandHeartThin } from 'react-icons/pi'
+
 import { FaHeartbeat } from 'react-icons/fa'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from './index.module.css'
 import { useRouter } from 'next/router'
+import { GiOrbDirection } from 'react-icons/gi'
 
 interface Story {
 	_id: string
@@ -29,8 +30,43 @@ const StoryComponent: React.FC = () => {
 			price: 7777777,
 			category: 'P&O*S^T$I%T#E^M$',
 			quantity: 22,
-			description:
-				'Web Developer',
+			description: 'Web Developer',
+		},
+		{
+			_id: '2277137',
+			title: 'EBiramoza',
+			src: '/alireza.jpg',
+			price: 7777777,
+			category: 'P&O*S^T$I%T#E^M$',
+			quantity: 22,
+			description: 'Web Developer',
+		},
+		{
+			_id: '2277137',
+			title: 'EBiramoza',
+			src: '/alireza.jpg',
+			price: 7777777,
+			category: 'P&O*S^T$I%T#E^M$',
+			quantity: 22,
+			description: 'Web Developer',
+		},
+		{
+			_id: '2277137',
+			title: 'EBiramoza',
+			src: '/alireza.jpg',
+			price: 7777777,
+			category: 'P&O*S^T$I%T#E^M$',
+			quantity: 22,
+			description: 'Web Developer',
+		},
+		{
+			_id: '2277137',
+			title: 'EBiramoza',
+			src: '/alireza.jpg',
+			price: 7777777,
+			category: 'P&O*S^T$I%T#E^M$',
+			quantity: 22,
+			description: 'Web Developer',
 		},
 	]
 	const [openStory, setOpenStory] = useState<string>()
@@ -99,12 +135,12 @@ const StoryComponent: React.FC = () => {
 						<div
 							className={styles.story}
 							style={{
-								border: `2px solid ${
+								border: `.6vh double${
 									openStory === story._id
 										? '#dfd688'
 										: story.seen
 										? 'silver'
-										: 'gold'
+										: '#ffa90a'
 								}`,
 							}}
 							onClick={() => showStory(story._id)}>
@@ -121,9 +157,16 @@ const StoryComponent: React.FC = () => {
 			</div>
 			{showStoryBox && (
 				<div className={styles.openStoryContainer}>
+					<GiOrbDirection
+						className={styles.directionsIcon}
+						size={`${7 * 0.713}vh`}
+						// onClick={nextImage}
+					/>
 					<div className={styles.openStoryInnerSide}>
 						{stories.map((story, index) => (
-							<div className={styles.openStoryBox} key={index}>
+							<div
+								className={styles.openStoryBox}
+								key={index}>
 								<div className={styles.openStoryHeader}>
 									<AiFillCloseCircle
 										className={styles.close}
@@ -160,14 +203,14 @@ const StoryComponent: React.FC = () => {
 									/>
 									<h6>{story.description}</h6>
 								</div>
-								<PiHandHeartThin
-									size={'4vh'}
-									color={'white'}
-									className={styles.like}
-								/>
 							</div>
 						))}
 					</div>
+					<GiOrbDirection
+						className={styles.directionsIcon}
+						size={`${7 * 0.713}vh`}
+						// onClick={nextImage}
+					/>
 				</div>
 			)}
 		</>

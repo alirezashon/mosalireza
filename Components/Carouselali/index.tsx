@@ -1,7 +1,7 @@
 /** @format */
 
 import Image from 'next/image'
-import { GrFormNextLink, GrFormPreviousLink } from 'react-icons/gr'
+import { GiOrbDirection } from 'react-icons/gi'
 import { MouseEvent, useEffect, useRef, useState } from 'react'
 import styles from './index.module.css'
 interface ImageStructure {
@@ -75,13 +75,12 @@ const Carouselali = () => {
 	return (
 		<>
 			<div className={styles.container}>
-				<GrFormPreviousLink
-					className={styles.directionsIcon}
-					size={`${13 * 0.7}vh`}
-					onClick={previousImage}
-				/>
-
 				<div className={styles.carouselaliContainer}>
+					<GiOrbDirection
+						className={styles.directionsIcon}
+						size={`${7 * 0.713}vh`}
+						onClick={previousImage}
+					/>
 					<div className={styles.carouselali}>
 						<div className={styles.circaliBox}>
 							{images.map((image, index) => (
@@ -111,12 +110,12 @@ const Carouselali = () => {
 								}}></div>
 						</div>
 					</div>
+					<GiOrbDirection
+						className={styles.directionsIcon}
+						size={`${7 * 0.713}vh`}
+						onClick={nextImage}
+					/>
 				</div>
-				<GrFormNextLink
-					className={styles.directionsIcon}
-					size={`${13 * 0.7}vh`}
-					onClick={nextImage}
-				/>
 			</div>
 		</>
 	)
