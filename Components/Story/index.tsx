@@ -3,7 +3,7 @@
 import { FaHeartbeat } from 'react-icons/fa'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './index.module.css'
 import { useRouter } from 'next/router'
 import { GiOrbDirection } from 'react-icons/gi'
@@ -33,7 +33,7 @@ const StoryComponent: React.FC = () => {
 			description: 'Web Developer',
 		},
 		{
-			_id: '2277137',
+			_id: '227137',
 			title: 'EBiramoza',
 			src: '/alireza.jpg',
 			price: 7777777,
@@ -42,7 +42,7 @@ const StoryComponent: React.FC = () => {
 			description: 'Web Developer',
 		},
 		{
-			_id: '2277137',
+			_id: '27137',
 			title: 'EBiramoza',
 			src: '/alireza.jpg',
 			price: 7777777,
@@ -51,7 +51,7 @@ const StoryComponent: React.FC = () => {
 			description: 'Web Developer',
 		},
 		{
-			_id: '2277137',
+			_id: '77137',
 			title: 'EBiramoza',
 			src: '/alireza.jpg',
 			price: 7777777,
@@ -60,7 +60,7 @@ const StoryComponent: React.FC = () => {
 			description: 'Web Developer',
 		},
 		{
-			_id: '2277137',
+			_id: '7137',
 			title: 'EBiramoza',
 			src: '/alireza.jpg',
 			price: 7777777,
@@ -78,22 +78,27 @@ const StoryComponent: React.FC = () => {
 		})) || []
 	)
 	const [like, setLike] = useState<number[]>([])
+	const openStoryBoxRef = useRef<HTMLDivElement>(null)
 	const router = useRouter()
 	useEffect(() => {
 		const storyHistory: string[] = JSON.parse(
 			sessionStorage.getItem('^S&T#o@r%i($*i&N0') || '[]'
 		)
 		const setSeen: Story[] = []
-		stories.map((story) => {
-			const seen = storyHistory.find((item) => story._id === item)
+		const checkStories = () => {
+			
+			stories.map((story) => {
+				const seen = storyHistory.find((item) => story._id === item)
 				? true
 				: false
-			setSeen.push({
-				...story,
-				seen,
-			})
-		}) || []
-		setStories(setSeen)
+				setSeen.push({
+					...story,
+					seen,
+				})
+			}) || []
+			setStories(setSeen)
+		}
+		checkStories
 	}, [stories])
 	const showStory = (_id: string) => {
 		const storyHistory: string[] = JSON.parse(
@@ -123,8 +128,36 @@ const StoryComponent: React.FC = () => {
 			setOpenStory((prevIndex) => prevIndex && prevIndex + 1)
 		}, 7000000)
 	}
-	const closeStory = () => {
-		setShowStoryBox(false)
+	useEffect(() => {
+		 showStoryBox && console.log(openStoryBoxRef.current?.offsetLeft)
+		const handleScroll = () => {
+			if (openStoryBoxRef.current) {
+				const yOffset = window.scrollY
+				const navOffsetTop = openStoryBoxRef.current.offsetTop
+				console.log(navOffsetTop)
+				// Add your condition based on the yOffset and navOffsetTop
+				const shouldAnimate = yOffset > navOffsetTop
+
+ 			}
+		}
+
+		window.addEventListener('scroll', handleScroll)
+ 		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [openStoryBoxRef])
+
+  const handleDirectionIconClick = (direction:string) => {
+		const element = openStoryBoxRef.current
+		if (element) {
+			const currentScrollX = element.scrollLeft
+			const newScrollX =
+				direction === 'positive' ? currentScrollX + 40 : currentScrollX - 40
+			element.scrollTo({
+				left: newScrollX,
+				behavior: 'smooth',
+			})
+		}
 	}
 
 	return (
@@ -156,11 +189,13 @@ const StoryComponent: React.FC = () => {
 				))}
 			</div>
 			{showStoryBox && (
-				<div className={styles.openStoryContainer}>
+				<div
+					className={styles.openStoryContainer}
+					ref={openStoryBoxRef}>
 					<GiOrbDirection
 						className={styles.directionsIcon}
 						size={`${7 * 0.713}vh`}
-						// onClick={nextImage}
+						onClick={() => handleDirectionIconClick('negative')}
 					/>
 					<div className={styles.openStoryInnerSide}>
 						{stories.map((story, index) => (
@@ -170,7 +205,7 @@ const StoryComponent: React.FC = () => {
 								<div className={styles.openStoryHeader}>
 									<AiFillCloseCircle
 										className={styles.close}
-										onClick={closeStory}
+										onClick={() => setShowStoryBox(false)}
 										color={'white'}
 										size={'5vh'}
 									/>
@@ -209,7 +244,7 @@ const StoryComponent: React.FC = () => {
 					<GiOrbDirection
 						className={styles.directionsIcon}
 						size={`${7 * 0.713}vh`}
-						// onClick={nextImage}
+						onClick={() => handleDirectionIconClick('positive')}
 					/>
 				</div>
 			)}

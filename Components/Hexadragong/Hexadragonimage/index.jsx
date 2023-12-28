@@ -1,5 +1,4 @@
-/** @format */
-
+ 
 import * as d3 from 'd3'
 
 export const createHexagonImage = (url, size, x, y) => {
@@ -60,7 +59,7 @@ export const createHexagonImage = (url, size, x, y) => {
 		.attr('width', hexagonSize * 2)
 		.attr('height', hexagonSize * 2)
 		.attr('x', x)
-		.attr('y', y - hexagonSize)
+		.attr('y', y )
 
 	return svgContainer.node()
 }

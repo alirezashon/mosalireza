@@ -50,7 +50,7 @@
 }
 .directionsIcon {
 	border-radius: 1vh;
-	opacity: .67;
+	opacity: 0.67;
 	color: rgba(255, 255, 255, 0.934);
 	background: radial-gradient(red, orange);
 	border-radius: 13vh;
@@ -66,7 +66,7 @@
 }
 
 .directionsIcon:hover {
-	animation: rotate .7s infinite backwards;
+	animation: rotate 0.7s infinite backwards;
 	opacity: 0.9;
 }
 .openStoryContainer {
@@ -76,8 +76,6 @@
 	padding: 1vh;
 	top: 13vh;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
 	align-items: center;
 	z-index: 3;
 	box-shadow: 1px 1px 2vh 0.7vh rgba(0, 4, 11, 0.9) inset;
@@ -177,7 +175,7 @@
 	);
 	padding: 1vh;
 	margin: 1vh;
- 	border-radius: 1vh;
+	border-radius: 1vh;
 }
 .basketBall {
 	background: radial-gradient(

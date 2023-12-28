@@ -109,7 +109,8 @@
 font-size: 4vh;}
 .cross:hover {
 	opacity: 1;
-	transform: scale(1.1);
+	transform: scale(1.1) rotate(360deg);
+	background-color: rgba(240, 248, 255, 0.6);
 }
 .dropdown {
 	color: rgba(1, 30, 44, 0.934);

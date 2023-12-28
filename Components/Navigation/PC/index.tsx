@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import styles from './index.module.css'
+ import styles from './index.module.css'
 import { PiArrowFatLinesDownThin, PiArrowFatLinesUpThin } from 'react-icons/pi'
 import Image from 'next/image'
 
@@ -11,8 +10,7 @@ interface MenuItem {
 
 const Menu = () => {
 	const [visible, setVisible] = useState<boolean>(true)
-	const [selectedItem, setSelectedItem] = useState<number | null>(null)
-	const [isSubOptionOpen, setIsSubOptionOpen] = useState<{
+ 	const [isSubOptionOpen, setIsSubOptionOpen] = useState<{
 		[key: number]: boolean
 	}>({})
 	const [navHeight, setNavHeight] = useState<number>(13)
@@ -111,7 +109,7 @@ const Menu = () => {
 					<div className={styles.items}>
 						{items.map((menuItem, index) => (
 							<div
-								key={menuItem.link}
+								key={index}
 								className={`${navHeight < 55 && styles.link}`}>
 								<p className={styles.menuItem}>{menuItem.label}</p>
 								<div
@@ -121,14 +119,12 @@ const Menu = () => {
 										dropdownItems[index] &&
 										dropdownItems[index].map((option, subIndex) => (
 											<div
-												key={option.link}
+												key={subIndex}
 												className={`${styles.subOption} ${
 													isSubOptionOpen[index] ? styles.showSubOption : ''
 												}`}>
-												<Link href={option.link}>
-													<p className={styles.subOptionItem}>{option.label}</p>
-												</Link>
-											</div>
+ 													<p className={styles.subOptionItem}>{option.label}</p>
+ 											</div>
 										))}
 								</div>
 							</div>

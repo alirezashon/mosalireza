@@ -25,7 +25,7 @@ const Personalinfo = () => {
 						/>
 						<div className={styles.whiteBoard}>
 							{texts.map((txt) => (
-								<h1 className={styles.text}> {txt}</h1>
+								<h1 key={txt} className={styles.text}> {txt}</h1>
 							))}
 						</div>
 					</div>

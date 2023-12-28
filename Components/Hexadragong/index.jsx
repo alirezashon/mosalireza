@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { createHexagonImage } from './Hexadragonimage'
+import styles from './index.module.css'
 import * as d3 from 'd3'
 
 const Hexadragong = () => {
@@ -45,7 +46,7 @@ const Hexadragong = () => {
 			const xPos = x - hexagonSize / 2
 			const yPos = y - hexagonSize / 2
 
-			const hexagonImage = createHexagonImage('/alireza.jpg', hexagonSize)
+			const hexagonImage = createHexagonImage('/alireza.jpg', hexagonSize,0,0)
 			d3.select(hexagonImage)
 				.attr('x', xPos)
 				.attr('y', yPos)
@@ -62,11 +63,16 @@ const Hexadragong = () => {
 	}, [])
 
 	return (
-		<svg
-			ref={svgRef}
-			width='100%'
-			height='100vh'
-		/>
+		<>
+			<div className={styles.container}>
+				<div className={styles.header}> you can drag hexagon </div>
+				<svg
+					ref={svgRef}
+					width='100%'
+					height='80vh'
+				/>
+			</div>
+		</>
 	)
 }
 

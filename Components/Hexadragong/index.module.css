@@ -1,0 +1,25 @@
+/** @format */
+
+.container {
+    margin: 1vh;
+	background: linear-gradient(
+	45deg,
+		rgba(200, 215, 242, 0.9),
+		rgba(152, 218, 227, 0.9),
+		rgba(16, 56, 52, 0.9)
+	);
+    border: ridge 1vh rgba(red, green, blue,1);
+}
+.header {
+	width: 100vw;
+	height: 7vh;
+	background: linear-gradient(
+		rgba(183, 226, 242, 0.9),
+		rgba(98, 209, 234, 0.9)
+	);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3vh;
+	margin-bottom: -9vh;
+}

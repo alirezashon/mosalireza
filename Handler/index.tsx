@@ -1,66 +1,80 @@
-import handler from '`GOD/pages/api/hello`';
-import Personalinfo from '../Components/Personalinfo';
-import Carouselali from '../Components/Carouselali';
-import Story from '../Components/Story';
-import Video from '../Components/video';
-import Hexadragong from '../Components/Hexadragong';
-import Navigation from '../Components/Navigation';
-import { useEffect, useRef, useState, CSSProperties } from 'react';
+/** @format */
 
-interface HandlerProps {}
+import handler from '`GOD/pages/api/hello`'
+import Personalinfo from '../Components/Personalinfo'
+import Carouselali from '../Components/Carouselali'
+import Story from '../Components/Story'
+import Video from '../Components/video'
+import Hexadragong from '../Components/Hexadragong'
+import Navigation from '../Components/Navigation'
+import { useEffect, useRef, useState, CSSProperties } from 'react'
 
-const Handler: React.FC<HandlerProps> = () => {
-	const [isScrolled, setIsScrolled] = useState(false);
-	const navRef = useRef<HTMLDivElement>(null);
+interface Refs {
+	[key: string]: React.RefObject<HTMLDivElement>
+}
+const Handler: React.FC = () => {
+	const refs: Refs = {
+		carousel: useRef<HTMLDivElement>(null),
+		hexagon: useRef<HTMLDivElement>(null),
+		nav: useRef<HTMLDivElement>(null),
+	}
+
+	const [isScrolled, setIsScrolled] = useState<Record<string, boolean>>(
+		Object.fromEntries(Object.keys(refs).map((key) => [key, false]))
+	)
 
 	useEffect(() => {
 		const handleScroll = () => {
-			if (navRef.current) {
-				const yOffset = window.scrollY;
-				const navOffsetTop = navRef.current.offsetTop;
+			const yOffset = window.scrollY
 
-				// Add your condition based on the yOffset and navOffsetTop
-				const shouldAnimate = yOffset > navOffsetTop;
+			Object.keys(refs).forEach((key) => {
+				const refElement = refs[key].current
+				if (refElement) {
+					const offsetTop = refElement.offsetTop
 
-				setIsScrolled(shouldAnimate);
-			}
-		};
+					const shouldScroll = yOffset > offsetTop / 2
 
-		window.addEventListener('scroll', handleScroll);
+					setIsScrolled((prev) => ({ ...prev, [key]: shouldScroll }))
+				}
+			})
+		}
 
-		// Cleanup the event listener on component unmount
+		window.addEventListener('scroll', handleScroll)
+
 		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, [navRef]);
-
-	const animatedStyle: CSSProperties = {
-		transition: 'all 0.5s',
-		opacity: isScrolled ? 1 : 0,
-	};
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [refs])
 
 	return (
 		<>
-			<div ref={navRef} style={{ marginBottom: '13vh' }} className={isScrolled ? 'animatedClass' : ''}>
-				<Navigation />
-			</div>
-			<Story  />
+			<Navigation />
+			<Story />
 			<Personalinfo />
-			<Carouselali  />
-			<Hexadragong/>
-			<Video   />
+			<div
+				ref={refs.carousel}
+				style={{
+					transform: `${
+						isScrolled.carousel ? 'translateX(0)' : 'translateX(-100vw)'
+					}`,
+				}}>
+				<Carouselali />
+			</div>
+			<div
+				ref={refs.hexagon}
+				style={{
+					transform: `${
+						isScrolled.hexagon ? 'translateX(0)' : 'translateX(100vw)'
+					}`,
+				}}>
+				<Hexadragong />
+			</div>
+			<Video />
 		</>
-	);
-};
+	)
+}
 
-export default Handler;
-
-
-
-
-
-
-
+export default Handler
 
 // import Personalinfo from '../Components/Personalinfo'
 // import Carouselali from '../Components/Carouselali'
