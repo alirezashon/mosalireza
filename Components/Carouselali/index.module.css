@@ -210,9 +210,8 @@
 	.container {
 		height: 30vh;
 	}
-
-	.circali {
-		width: 93%;
-		height: 93%;
+	.circaliBox{
+		width: 84vw;
+		
 	}
 }
