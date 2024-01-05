@@ -1,3 +1,5 @@
+/** @format */
+
 import handler from '`GOD/pages/api/hello`'
 import Personalinfo from '../Components/Personalinfo'
 import Carouselali from '../Components/Carouselali'
@@ -6,6 +8,7 @@ import Video from '../Components/video'
 import Hexadragong from '../Components/Hexadragong'
 import Navigation from '../Components/Navigation'
 import { useEffect, useRef, useState, CSSProperties } from 'react'
+import Head from 'next/head'
 
 interface Refs {
 	[key: string]: React.RefObject<HTMLDivElement>
@@ -33,15 +36,38 @@ const Handler: React.FC = () => {
 				}
 			})
 		}
-		
+
 		window.addEventListener('scroll', handleScroll)
 		return () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
 	}, [refs])
-
+	const content = {
+		'@context': 'http://akbariovich.ir',
+		'@type': 'Developer',
+		headline: 'Web Developer',
+		datePublished: '2023-01-01',
+		author: {
+			'@type': 'Person',
+			name: 'Akbariovich',
+		},
+		description: 'Full stack web developer ',
+	}
 	return (
 		<>
+			<Head>
+				<title>Alireza Akbari - Web Developer</title>
+				<meta
+					name='Alireza Akbari'
+					content='Alireza Akbari - JavaScript Senior, Web Developer, Data Structure & Scientist'
+				/>
+				<link
+					data-default-icon='https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png'
+					rel='icon'
+ 					href='images/icon.png'
+				/>
+				<script type='application/ld+json'>{`${content}`}</script>
+			</Head>
 			<Navigation />
 			<Story />
 			<Personalinfo />

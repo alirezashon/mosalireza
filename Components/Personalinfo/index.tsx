@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import styles from './index.module.css'
-const Personalinfo = () => {
+ const Personalinfo = () => {
 	const texts = [
 		'Alireza Akbari',
 		'Web Developer',
@@ -12,20 +12,25 @@ const Personalinfo = () => {
 	]
 	return (
 		<>
-			<div className={styles.container}>
+ 			
+ 			<div className={styles.container}>
 				<div className={styles.detailsBox}>
 					<div className={styles.information}>
 						<Image
 							draggable='false'
 							className={styles.image}
 							src={'/alireza.jpg'}
-							alt='personal image'
+							alt='personal image Alireza Akbari'
 							width={1111}
 							height={1111}
 						/>
 						<div className={styles.whiteBoard}>
 							{texts.map((txt) => (
-								<h1 key={txt} className={styles.text}> {txt}</h1>
+								<h1
+									key={txt}
+									className={styles.text}>
+ 									{txt}
+								</h1>
 							))}
 						</div>
 					</div>
