@@ -1,6 +1,6 @@
 /** @format */
 
-import handler from '`GOD/pages/api/hello`'
+import handler from '`GOD/pages/api/AI`'
 import Personalinfo from '../Components/Personalinfo'
 import Carouselali from '../Components/Carouselali'
 import Story from '../Components/Story'
